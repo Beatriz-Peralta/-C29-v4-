@@ -22,29 +22,20 @@ function setup() {
   ground = new Ground(0, height - 1, width * 2, 1);
   tower = new Tower(150, 350, 160, 310);
   cannon = new Cannon(180, 110, 100, 50, angle);
-//criar um objeto para bala de canhão
+  cannonBall = new CannonBall(cannon.x, cannon.y) //cria a bala de canhão
 }
 
 function draw() {
   background(189);
   image(backgroundImg, 0, 0, width, height);
-
-  
-
   Engine.update(engine);
   ground.display();
-  
-
   cannon.display();
   tower.display();
-//mostrar a bala de canhão
+  //cannonBall.display() //exibe a bola
 }
-
-
-
-
-
-
-function keyReleased() {
- //use a tecla para baixo para chamar a função shoot (tiro)
+function keyReleased() { //funçao para disparar a bola
+  if (keyCode === DOWN_ARROW) { //se a tela abaixada e a tecla para baixo 
+    cannonBall.shhort() //chama a funcao shoot
+  }
 }
